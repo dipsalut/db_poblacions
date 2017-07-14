@@ -5,6 +5,7 @@ Projecte que proporciona la informació de totes les províncies, municipis i co
 Els scripts d'aquest projecte es troben en MySQL.
 
 Aquest projecte conté:
+- Un script preparat per importar tots els països del món.
 - Un script preparat per generar 3 taules a la base de dades.
     -  provincies
     -  municipis
@@ -13,7 +14,9 @@ Aquest projecte conté:
 
 ## Script: importar estructura i dades
 
-Dins del directori `./script`, es troba un fitxer amb el nom `db_poblacions.sql` que permet generar l'estructura de les 3 taules i omplir-les amb la informació sobre totes les províncies, municipis i codis postals.
+Dins del directori `./script`, es troba:
+- Un fitxer amb el nom `db_paisos.sql` que permet generar una taula amb el nom de tots els països.
+- Un fitxer amb el nom `db_poblacions.sql` que permet generar l'estructura de les 3 taules i omplir-les amb la informació sobre totes les províncies, municipis i codis postals.
 
 
 ## Generar l'script
