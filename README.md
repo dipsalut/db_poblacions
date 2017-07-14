@@ -11,14 +11,14 @@ Aquest projecte conté:
     -  codis_postals
 - Les passes que cal seguir per generar l'script amb dades més actualitzades de l'INE.
 
-## Script: importar esctructura i dades
+## Script: importar estructura i dades
 
-Dins de la directori `./script`, es troba un fitxer amb el nom `db_poblacions.sql` que permet generar l'estructura de les 3 taules i omplir-les amb la informació sobre totes les províncies, municipis i codis postals.
+Dins del directori `./script`, es troba un fitxer amb el nom `db_poblacions.sql` que permet generar l'estructura de les 3 taules i omplir-les amb la informació sobre totes les províncies, municipis i codis postals.
 
 
 ## Generar l'script
 
-A continuació es descriuen els passos que cal seguir obtenir les dades més actualitzades des de l'INE i poder generar-se de nou l'script.
+A continuació es descriuen els passos que cal seguir per obtenir les dades més actualitzades des de l'INE i poder generar-se de nou l'script.
 
 ### 1 - Obtenir les dades de l'INE
 
@@ -28,7 +28,7 @@ Cal obtenir dos fitxers des de la pàgina web de l'INE:
 
 ### 2 - Crear script de ine_municipis.sql
 #### 2.1 - Crear taula
-Creearem una taula temporal a la base da dades amb la següent estructura:
+Crearem una taula temporal a la base de dades amb la següent estructura:
 ````sql
 CREATE TABLE tmp_municipis (
   id_autonomia VARCHAR( 2 ) NOT NULL,
@@ -40,9 +40,9 @@ CREATE TABLE tmp_municipis (
 ````
 
 #### 2.2 - Dades de la taula
-El fitxer Excel que en hem descarregat anteriorment, conté el nom de totes les poblacions espanyoles.
+El fitxer Excel que ens hem descarregat anteriorment, conté el nom de totes les poblacions espanyoles.
 
-Guardarem el fitxer Excel el format `.CSV` amb tota la informació, però sense la capçalera i els títols de les columnes (Files 1 i 2 del Excel). Recomanem utilitzar `;` com a delimitadors.
+Guardarem el fitxer Excel en format `.CSV` amb tota la informació, però sense la capçalera i els títols de les columnes (Files 1 i 2 de l'Excel). Recomanem utilitzar `;` com a delimitadors.
 
 ````txt
 Relación de municipios y códigos por comunidades autónomas y provincias a 1 de enero de 2017;;;;
@@ -123,7 +123,7 @@ La comanda realitza les següents operacions:
 
 #### 3.3 Crear taula
 
-Creearem una taula temporal a la base de dades amb la següent estructura:
+Crearem una taula temporal a la base de dades amb la següent estructura:
 
 ````sql
 CREATE TABLE tmp_codispostals (
@@ -190,7 +190,7 @@ CREATE TABLE `codis_postals` (
 
 A partir de les dades temporals que hem creat en els punts 2 i 3 d'aquesta documentació, importarem la informació a les taules que hem acabat de crear.
 
-##### 4.2.1 - Provincies
+##### 4.2.1 - Províncies
 Afegim totes les provínces espanyoles a la taula `provincies`:
 ````sql
 INSERT INTO `provincies` VALUES ('01','Araba/Álava'),('02','Albacete'),('03','Alicante/Alacant'),('04','Almería'),('05','Ávila'),('06','Badajoz'),('07','Balears, Illes'),('08','Barcelona'),('09','Burgos'),('10','Cáceres'),('11','Cádiz'),('12','Castellón/Castelló'),('13','Ciudad Real'),('14','Córdoba'),('15','Coruña, A'),('16','Cuenca'),('17','Girona'),('18','Granada'),('19','Guadalajara'),('20','Gipuzkoa'),('21','Huelva'),('22','Huesca'),('23','Jaén'),('24','León'),('25','Lleida'),('26','Rioja, La'),('27','Lugo'),('28','Madrid'),('29','Málaga'),('30','Murcia'),('31','Navarra'),('32','Ourense'),('33','Asturias'),('34','Palencia'),('35','Palmas, Las'),('36','Pontevedra'),('37','Salamanca'),('38','Santa Cruz de Tenerife'),('39','Cantabria'),('40','Segovia'),('41','Sevilla'),('42','Soria'),('43','Tarragona'),('44','Teruel'),('45','Toledo'),('46','Valencia/València'),('47','Valladolid'),('48','Bizkaia'),('49','Zamora'),('50','Zaragoza'),('51','Ceuta'),('52','Melilla');
