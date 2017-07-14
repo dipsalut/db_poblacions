@@ -6,7 +6,7 @@ CREATE TABLE `provincies` (
   `codi_provincia` varchar(2) NOT NULL,
   `nom` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`codi_provincia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `municipis` (
   `codi_municipi` varchar(3) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE `municipis` (
   PRIMARY KEY (`codi_municipi`,`codi_provincia`),
   KEY `fk_municipis_provincies_idx` (`codi_provincia`),
   CONSTRAINT `fk_municipis_provincies` FOREIGN KEY (`codi_provincia`) REFERENCES `provincies` (`codi_provincia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `codis_postals` (
   `id_codi_postal` int(11) NOT NULL AUTO_INCREMENT,
@@ -27,7 +27,7 @@ CREATE TABLE `codis_postals` (
   KEY `fk_codis_postals_provincies_idx` (`codi_provincia`),
   CONSTRAINT `fk_codis_postals_municipis` FOREIGN KEY (`codi_municipi`) REFERENCES `municipis` (`codi_municipi`),
   CONSTRAINT `fk_codis_postals_provincies` FOREIGN KEY (`codi_provincia`) REFERENCES `provincies` (`codi_provincia`)
-) ENGINE=InnoDB AUTO_INCREMENT=16384 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB CHARSET=utf8;
 
 INSERT INTO `provincies` VALUES ('01','Araba/Álava'),('02','Albacete'),('03','Alicante/Alacant'),('04','Almería'),('05','Ávila'),('06','Badajoz'),('07','Balears, Illes'),('08','Barcelona'),('09','Burgos'),('10','Cáceres'),('11','Cádiz'),('12','Castellón/Castelló'),('13','Ciudad Real'),('14','Córdoba'),('15','Coruña, A'),('16','Cuenca'),('17','Girona'),('18','Granada'),('19','Guadalajara'),('20','Gipuzkoa'),('21','Huelva'),('22','Huesca'),('23','Jaén'),('24','León'),('25','Lleida'),('26','Rioja, La'),('27','Lugo'),('28','Madrid'),('29','Málaga'),('30','Murcia'),('31','Navarra'),('32','Ourense'),('33','Asturias'),('34','Palencia'),('35','Palmas, Las'),('36','Pontevedra'),('37','Salamanca'),('38','Santa Cruz de Tenerife'),('39','Cantabria'),('40','Segovia'),('41','Sevilla'),('42','Soria'),('43','Tarragona'),('44','Teruel'),('45','Toledo'),('46','Valencia/València'),('47','Valladolid'),('48','Bizkaia'),('49','Zamora'),('50','Zaragoza'),('51','Ceuta'),('52','Melilla');
 

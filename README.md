@@ -162,7 +162,7 @@ CREATE TABLE `provincies` (
   `codi_provincia` varchar(2) NOT NULL,
   `nom` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`codi_provincia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `municipis` (
   `codi_municipi` varchar(3) NOT NULL,
@@ -171,7 +171,7 @@ CREATE TABLE `municipis` (
   PRIMARY KEY (`codi_municipi`,`codi_provincia`),
   KEY `fk_municipis_provincies_idx` (`codi_provincia`),
   CONSTRAINT `fk_municipis_provincies` FOREIGN KEY (`codi_provincia`) REFERENCES `provincies` (`codi_provincia`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `codis_postals` (
   `id_codi_postal` int(11) NOT NULL AUTO_INCREMENT,
@@ -183,7 +183,7 @@ CREATE TABLE `codis_postals` (
   KEY `fk_codis_postals_provincies_idx` (`codi_provincia`),
   CONSTRAINT `fk_codis_postals_municipis` FOREIGN KEY (`codi_municipi`) REFERENCES `municipis` (`codi_municipi`),
   CONSTRAINT `fk_codis_postals_provincies` FOREIGN KEY (`codi_provincia`) REFERENCES `provincies` (`codi_provincia`)
-) ENGINE=InnoDB AUTO_INCREMENT=16384 DEFAULT CHARSET=la
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ````
 
 #### 4.2 - Importar dades a partir de les taules temporals
@@ -204,7 +204,7 @@ Afegim tots els municipis espanyols a la taula de `municipis` a partir de la inf
 INSERT INTO municipis (codi_municipi, nom, codi_provincia)
 SELECT id_municipi as 'codi_municipi', nom as 'nom', id_provincia as 'codi_provincia'
 FROM tmp_municipis
-order by id_provincia, id_municipi, nom
+ORDER BY id_provincia, id_municipi, nom
 ````
 
 ##### 4.2.3 - Codis postals
